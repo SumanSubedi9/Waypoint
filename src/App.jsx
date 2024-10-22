@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Product from "./pages/Product";
-import Pricing from "./pages/Pricing";
+import Product from "./pages/Explore";
+import Pricing from "./pages/Memories";
 import Homepage from "./pages/Homepage";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
