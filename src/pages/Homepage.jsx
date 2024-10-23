@@ -11,8 +11,10 @@ function Homepage() {
         <br />
         <h2>
           Track your global adventures, one city at a time with GlobeWatch -
-          your personal travel companion.
+          your personal travel companion. Discover and document the cities
+          you've explored, building a unique story of your adventures.
         </h2>
+
         <Link to="/app" className="cta">
           Get started
         </Link>
