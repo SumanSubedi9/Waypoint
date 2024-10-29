@@ -35,54 +35,6 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
-    },
-    {
-      "id": "14b3",
-      "cityName": "Le Plessis-Trévise",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-10-29T21:11:24.562Z",
-      "notes": "",
-      "position": {
-        "lat": "48.80822011553444",
-        "lng": "2.5738906860351567"
-      }
-    },
-    {
-      "id": "7cf8",
-      "cityName": "Livry-Gargan",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-10-29T21:14:20.100Z",
-      "notes": "",
-      "position": {
-        "lat": "48.90625412315378",
-        "lng": "2.522048950195313"
-      }
-    },
-    {
-      "id": "6fba",
-      "cityName": "Montgrésin",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-10-29T21:14:28.913Z",
-      "notes": "this was fun",
-      "position": {
-        "lat": "49.146681929552095",
-        "lng": "2.4966430664062504"
-      }
-    },
-    {
-      "id": "82c3",
-      "cityName": "Reuil-sur-Brêche",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-10-29T21:16:17.960Z",
-      "notes": "",
-      "position": {
-        "lat": "49.514510112029",
-        "lng": "2.2384643554687504"
-      }
     }
   ]
 }
