@@ -1,12 +1,15 @@
 import PageNav from "../components/PageNav";
+import styles from "./Memories.module.css";
 
-function Pricing() {
+function Memories() {
   return (
-    <div>
-      <PageNav />
-      <h1>Memories</h1>
-    </div>
+    <section className={styles.memories}>
+      <div>
+        <PageNav />
+        <h1>Memories</h1>
+      </div>
+    </section>
   );
 }
 
-export default Pricing;
+export default Memories;

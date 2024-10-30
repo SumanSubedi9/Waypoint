@@ -1,0 +1,9 @@
+.explore {
+  height: 100vh;
+  /* margin: 2.5rem; */
+  background-color: var(--color-dark--1);
+
+  background-size: cover;
+  background-position: center;
+  padding: 2.5em 5rem;
+}

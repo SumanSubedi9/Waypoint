@@ -1,11 +1,13 @@
 import PageNav from "../components/PageNav.jsx";
-function Product() {
+import styles from "./Explore.module.css";
+
+function Explore() {
   return (
-    <div>
+    <section className={styles.explore}>
       <PageNav />
       <h1>Explore</h1>
-    </div>
+    </section>
   );
 }
 
-export default Product;
+export default Explore;
