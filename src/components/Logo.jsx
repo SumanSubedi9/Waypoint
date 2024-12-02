@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
+import styles from "./Logo.module.css";
 function Logo() {
   return (
     <Link to="/">
-      <div>Logo</div>
+      <img
+        src="/src/assets/Logo.png"
+        alt="Waypoint logo"
+        className={styles.logo}
+      />
     </Link>
   );
 }

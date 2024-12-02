@@ -7,11 +7,11 @@ function Homepage() {
     <main className={styles.homepage}>
       <PageNav />
       <section>
-        <h1>GlobeWatch</h1>
+        <h1>Waypoint</h1>
         <br />
         <h2>
-          Track your global adventures, one city at a time with GlobeWatch -
-          your personal travel companion. Discover and document the cities
+          Track your global adventures, one city at a time with Waypoint - your
+          personal travel companion. Discover and document the cities
           you&apos;ve explored, building a unique story of your adventures.
         </h2>
 
