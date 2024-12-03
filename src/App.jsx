@@ -22,6 +22,7 @@ const Homepage = lazy(() => import("./pages/Homepage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const Login = lazy(() => import("./pages/Login"));
+const Signup = lazy(() => import("./pages/Signup"));
 const Product = lazy(() => import("./pages/Explore"));
 const Pricing = lazy(() => import("./pages/Memories"));
 
@@ -37,6 +38,7 @@ function App() {
               <Route path="product" element={<Product />} />
               <Route path="pricing" element={<Pricing />} />
               <Route path="login" element={<Login />} />
+              <Route path="signup" element={<Signup />} />
               <Route
                 path="app"
                 element={
