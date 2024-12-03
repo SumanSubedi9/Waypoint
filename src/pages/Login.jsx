@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 import styles from "./Login.module.css";
 import PageNav from "../components/PageNav";
@@ -31,6 +32,13 @@ export default function Login() {
       <PageNav />
 
       <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.heading}>
+          <h1>Welcome Back!</h1>
+          <h3>
+            Don&apos;t have an account?<Link to="/signup">Sign up</Link>
+          </h3>
+        </div>
+
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
