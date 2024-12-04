@@ -35,6 +35,30 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
+    },
+    {
+      "id": "a3de",
+      "cityName": "Texarkana",
+      "country": "United States",
+      "emoji": "🇺🇸",
+      "date": "2024-12-03T00:12:59.419Z",
+      "notes": "",
+      "position": {
+        "lat": "33.422272258866045",
+        "lng": "-94.04571533203126"
+      }
+    },
+    {
+      "id": "8958",
+      "cityName": "Bristen",
+      "country": "Switzerland",
+      "emoji": "🇨🇭",
+      "date": "2024-12-04T01:12:13.341Z",
+      "notes": "",
+      "position": {
+        "lat": "46.78501604269256",
+        "lng": "8.745117187500002"
+      }
     }
   ]
 }
