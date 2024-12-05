@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { CitiesProvider } from "./context/CitiesContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import { lazy, Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
@@ -67,6 +68,26 @@ function App() {
             </Routes>
           </Suspense>
         </BrowserRouter>
+        <Toaster
+          position="top-center"
+          gutter={12}
+          containerStyle={{ margin: "8px" }}
+          toastOptions={{
+            success: {
+              duration: 3000,
+            },
+            error: {
+              duration: 5000,
+            },
+            style: {
+              fontSize: "16px",
+              maxWidth: "500px",
+              padding: "16px 24px",
+              backgroundColor: "var(--color-dark--2)",
+              color: "var(--color-light--3)",
+            },
+          }}
+        />
       </CitiesProvider>
     </QueryClientProvider>
   );
