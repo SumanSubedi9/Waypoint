@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+// import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { useAuth } from "../context/AuthContext";
+import { useState } from "react";
+import { useLogin } from "../authentication/useLogin";
 import { Link } from "react-router-dom";
 
 import styles from "./Login.module.css";
@@ -9,23 +11,28 @@ import Button from "../components/Button";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState("test@t.com");
-  const [password, setPassword] = useState("qwerty");
-  const { login, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("test@example.com");
+  const [password, setPassword] = useState("test123");
+  const { login } = useLogin();
+  // const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (email && password) login(email, password);
-    else {
-      alert("Please enter email and password");
-    }
+    if (!email || !password) return;
+
+    login({ email, password }),
+      {
+        onSettled: () => {
+          setEmail("");
+          setPassword("");
+        },
+      };
   }
 
-  useEffect(() => {
-    if (isAuthenticated) navigate("/app", { replace: true });
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated) navigate("/app", { replace: true });
+  // }, [isAuthenticated, navigate]);
 
   return (
     <main className={styles.login}>
