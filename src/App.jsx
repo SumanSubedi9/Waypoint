@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { CitiesProvider } from "./context/CitiesContext";
-import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import { lazy, Suspense } from "react";
 
@@ -26,9 +27,18 @@ const Signup = lazy(() => import("./pages/Signup"));
 const Product = lazy(() => import("./pages/Explore"));
 const Pricing = lazy(() => import("./pages/Memories"));
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+    },
+  },
+});
+
 function App() {
   return (
-    <AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <CitiesProvider>
         <BrowserRouter>
           <Suspense fallback={<SpinnerFullPage />}>
@@ -58,7 +68,7 @@ function App() {
           </Suspense>
         </BrowserRouter>
       </CitiesProvider>
-    </AuthProvider>
+    </QueryClientProvider>
   );
 }
 export default App;
