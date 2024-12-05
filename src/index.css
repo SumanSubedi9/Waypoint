@@ -21,6 +21,7 @@ FONT SIZE SYSTEM (px)
   --color-light--1: #aaa;
   --color-light--2: #ececec;
   --color-light--3: #d6dee0;
+  --color-error: #ff5252;
 }
 
 * {

@@ -23,7 +23,7 @@ const Homepage = lazy(() => import("./pages/Homepage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const Login = lazy(() => import("./pages/Login"));
-const Signup = lazy(() => import("./pages/Signup"));
+const Signup = lazy(() => import("./components/SignupForm"));
 const Product = lazy(() => import("./pages/Explore"));
 const Pricing = lazy(() => import("./pages/Memories"));
 
