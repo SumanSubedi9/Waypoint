@@ -11,6 +11,9 @@ import Spinner from "./Spinner";
 import DatePicker from "react-datepicker";
 import { useCities } from "../context/CitiesContext";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
     .toUpperCase()
@@ -18,9 +21,6 @@ export function convertToEmoji(countryCode) {
     .map((char) => 127397 + char.charCodeAt());
   return String.fromCodePoint(...codePoints);
 }
-
-const BASE_URL = "https://api.geoapify.com/v1/geocode/reverse";
-const API_KEY = "488790058b9a49bdbff27bd9e8056184";
 
 const requestOptions = {
   method: "GET",
