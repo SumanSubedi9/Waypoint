@@ -4,6 +4,7 @@ import { useSignup } from "../authentication/useSignup";
 
 import styles from "./SignupForm.module.css";
 import Button from "./Button";
+import PageNav from "./PageNav";
 
 export default function SignupForm() {
   const { signup, isLoading } = useSignup();
@@ -16,6 +17,7 @@ export default function SignupForm() {
 
   return (
     <main className={styles.signup}>
+      <PageNav />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.heading}>
           <h1>Create your Account</h1>
