@@ -1,10 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { useLogout } from "../authentication/useLogout.js";
+import { useUser } from "../authentication/useUser.js";
 import styles from "./User.module.css";
+import Avatar from "../assets/default-user.jpg";
 
 function User() {
   const { logout, isLoading } = useLogout();
   const navigate = useNavigate();
+
+  const defaultAvatar = Avatar;
+
+  const {
+    user: {
+      user_metadata: { fullName: currentFullName },
+    },
+  } = useUser();
 
   function handleClick() {
     window.confirm("Are you sure you want to logout?") && logout();
@@ -13,8 +23,8 @@ function User() {
 
   return (
     <div className={styles.user}>
-      {/* <img src={user.avatar} alt={user.name} />
-      <span>Welcome, {user.name}</span> */}
+      <img src={defaultAvatar} alt={currentFullName.split("")[0]} />
+      <span>Welcome, {currentFullName.split(" ")[0]}</span>
       <button disabled={isLoading} onClick={handleClick}>
         Logout
       </button>
