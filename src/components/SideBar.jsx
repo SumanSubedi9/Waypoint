@@ -10,7 +10,7 @@ function SideBar() {
       <Outlet />
       <footer className={styles.footer}>
         <p className={styles.copyright}>
-          &copy; Copyright {new Date().getFullYear()} GlobeWatch
+          &copy; Copyright {new Date().getFullYear()} Waypoint
         </p>
       </footer>
     </div>
