@@ -9,6 +9,7 @@ import {
 
 import supabase from "../services/supabase.js";
 import { useUser } from "../authentication/useUser.js";
+import { useRef } from "react";
 
 const CitiesContext = createContext();
 
@@ -17,10 +18,11 @@ function CitiesProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
   const { userId, isAuthenticated } = useUser();
+  const channelRef = useRef(null);
 
   useEffect(() => {
     // Real-time subscription
-    const channel = supabase
+    channelRef.current = supabase
       .channel("cities")
       .on(
         "postgres_changes",
@@ -50,7 +52,7 @@ function CitiesProvider({ children }) {
 
     // Cleanup subscription
     return () => {
-      supabase.removeChannel(channel);
+      if (channelRef.current) supabase.removeChannel(channelRef.current);
     };
   }, []);
 
