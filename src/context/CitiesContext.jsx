@@ -12,13 +12,47 @@ import { useUser } from "../authentication/useUser.js";
 
 const CitiesContext = createContext();
 
-// const BASE_URL = "http://localhost:9000";
-
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
   const { userId, isAuthenticated } = useUser();
+
+  useEffect(() => {
+    // Real-time subscription
+    const channel = supabase
+      .channel("cities")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "cities" },
+        (payload) => {
+          // Handle different types of changes
+          switch (payload.eventType) {
+            case "INSERT":
+              setCities((prevCities) => [...prevCities, payload.new]);
+              break;
+            case "UPDATE":
+              setCities((prevCities) =>
+                prevCities.map((city) =>
+                  city.id === payload.new.id ? payload.new : city
+                )
+              );
+              break;
+            case "DELETE":
+              setCities((prevCities) =>
+                prevCities.filter((city) => city.id !== payload.old.id)
+              );
+              break;
+          }
+        }
+      )
+      .subscribe();
+
+    // Cleanup subscription
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
 
   useEffect(() => {
     async function fetchCities() {
@@ -29,8 +63,6 @@ function CitiesProvider({ children }) {
           .select("*")
           .eq("userId", userId);
         if (error) throw new Error("Cities could not be retrieved");
-        // const res = await fetch(`${BASE_URL}/cities`);
-        // const data = await res.json();
 
         console.log(data);
 
@@ -50,8 +82,7 @@ function CitiesProvider({ children }) {
       const { data, error } = await supabase.from("cities").select("id", id);
 
       if (error) throw new Error("City could not be retrieved");
-      // const res = await fetch(`${BASE_URL}/cities/${id}`);
-      // const data = await res.json();
+
       setCurrentCity(data);
     } catch {
       alert("There was an error loading data...");
@@ -82,14 +113,7 @@ function CitiesProvider({ children }) {
 
       if (error) console.error("Error inserting data:", error);
       if (data) console.log("Successfully inserted:", data);
-      // const res = await fetch(`${BASE_URL}/cities`, {
-      //   method: "POST",
-      //   body: JSON.stringify(newCity),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // });
-      // const data = await res.json();
+
       setCities((cities) => [...cities, data]);
     } catch {
       alert("There was an error while creating the city.");
@@ -104,9 +128,6 @@ function CitiesProvider({ children }) {
       const { error } = await supabase.from("cities").delete().eq("id", id);
 
       if (error) console.error("Error deleting data:", error);
-      // await fetch(`${BASE_URL}/cities/${id}`, {
-      //   method: "DELETE",
-      // });
 
       setCities((cities) =>
         cities.filter((city) => city !== null && city.id !== id)
