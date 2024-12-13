@@ -8,6 +8,7 @@ import {
 } from "react";
 
 import supabase from "../services/supabase.js";
+import { useUser } from "../authentication/useUser.js";
 
 const CitiesContext = createContext();
 
@@ -17,12 +18,16 @@ function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
+  const { userId, isAuthenticated } = useUser();
 
   useEffect(() => {
     async function fetchCities() {
       try {
         setIsLoading(true);
-        const { data, error } = await supabase.from("cities").select("*");
+        const { data, error } = await supabase
+          .from("cities")
+          .select("*")
+          .eq("userId", userId);
         if (error) throw new Error("Cities could not be retrieved");
         // const res = await fetch(`${BASE_URL}/cities`);
         // const data = await res.json();
@@ -37,7 +42,7 @@ function CitiesProvider({ children }) {
       }
     }
     fetchCities();
-  }, []);
+  }, [userId, isAuthenticated]);
 
   const getCity = useCallback(async function getCity(id) {
     try {
@@ -56,6 +61,10 @@ function CitiesProvider({ children }) {
   }, []);
 
   async function createCity(newCity) {
+    if (!isAuthenticated) {
+      alert("You need to be logged in to create cities.");
+      return;
+    }
     try {
       setIsLoading(true);
       const { data, error } = await supabase.from("cities").insert({
@@ -68,6 +77,7 @@ function CitiesProvider({ children }) {
           lat: newCity.position.lat,
           lng: newCity.position.lng,
         },
+        userId: userId,
       });
 
       if (error) console.error("Error inserting data:", error);
