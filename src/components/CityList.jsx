@@ -13,9 +13,13 @@ function CityList() {
     return <Message message="Get Started by clicking on a city on the map" />;
   return (
     <ul className={styles.cityList}>
-      {cities.map((city) => (
-        <CityItem city={city} key={city.id} />
-      ))}
+      {cities.map((city) => {
+        if (city && city.id) {
+          return <CityItem city={city} key={city.id} />;
+        } else {
+          return null;
+        }
+      })}
     </ul>
   );
 }

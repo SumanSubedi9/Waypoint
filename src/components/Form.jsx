@@ -54,10 +54,14 @@ function Form() {
         const data = await res.json();
         console.log(data);
 
-        if (!data.features[0].properties.city) {
+        if (!data.features[0].properties.country_code) {
           throw new Error("No city found. Please try again.");
         }
-        setCityName(data.features[0].properties.city || "");
+        setCityName(
+          data.features[0].properties.city ||
+            data.features[0].properties.address_line1 ||
+            ""
+        );
         setCountry(data.features[0].properties.country || "");
         setEmoji(convertToEmoji(data.features[0].properties.country_code));
       } catch (err) {
@@ -115,11 +119,6 @@ function Form() {
           selected={date}
           dateFormat={"MM/dd/yyyy"}
         />
-        {/* <input
-          id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        /> */}
       </div>
 
       <div className={styles.row}>
