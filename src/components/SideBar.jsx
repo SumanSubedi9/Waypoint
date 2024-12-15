@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import App from "../App";
 import AppNav from "./AppNav";
 import styles from "./SideBar.module.css";
 

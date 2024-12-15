@@ -81,11 +81,16 @@ function CitiesProvider({ children }) {
   const getCity = useCallback(async function getCity(id) {
     try {
       setIsLoading(true);
-      const { data, error } = await supabase.from("cities").select("id", id);
+      const { data, error } = await supabase
+        .from("cities")
+        .select("*")
+        .eq("id", id)
+        .single();
 
       if (error) throw new Error("City could not be retrieved");
 
       setCurrentCity(data);
+      console.log(data);
     } catch {
       alert("There was an error loading data...");
     } finally {
