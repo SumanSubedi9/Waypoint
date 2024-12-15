@@ -119,11 +119,6 @@ function Form() {
           selected={date}
           dateFormat={"MM/dd/yyyy"}
         />
-        {/* <input
-          id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        /> */}
       </div>
 
       <div className={styles.row}>
