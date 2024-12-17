@@ -3,11 +3,7 @@ import styles from "./Logo.module.css";
 function Logo() {
   return (
     <Link to="/">
-      <img
-        src="/src/assets/Logo.png"
-        alt="Waypoint logo"
-        className={styles.logo}
-      />
+      <img src="/public/Logo.png" alt="Waypoint logo" className={styles.logo} />
     </Link>
   );
 }
