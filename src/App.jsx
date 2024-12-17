@@ -12,6 +12,7 @@ import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage";
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 // import Product from "./pages/Explore";
 // import Pricing from "./pages/Memories";
@@ -35,6 +36,8 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+polyfillCountryFlagEmojis();
 
 function App() {
   return (
