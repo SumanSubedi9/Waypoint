@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useLogout } from "../authentication/useLogout.js";
 import { useUser } from "../authentication/useUser.js";
 import styles from "./User.module.css";
-import Avatar from "../assets/default-user.jpg";
+import Avatar from "/public/default-user.jpg";
 
 function User() {
   const { logout, isLoading } = useLogout();
