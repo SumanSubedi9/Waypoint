@@ -9,9 +9,9 @@ export function useSignup() {
     mutationFn: signupApi,
     onSuccess: (user) => {
       toast.success("Account successfully created!");
-      toast.success(
-        "Please verify your new account from the user's email address"
-      );
+      // toast.success(
+      //   "Please verify your new account from the user's email address"
+      // );
       navigate("/login");
     },
   });
