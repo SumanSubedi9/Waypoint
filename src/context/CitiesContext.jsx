@@ -66,7 +66,7 @@ function CitiesProvider({ children }) {
           .eq("userId", userId);
         if (error) throw new Error("Cities could not be retrieved");
 
-        console.log(data);
+        // console.log(data);
 
         setCities(data);
       } catch {
@@ -90,7 +90,7 @@ function CitiesProvider({ children }) {
       if (error) throw new Error("City could not be retrieved");
 
       setCurrentCity(data);
-      console.log(data);
+      // console.log(data);
     } catch {
       alert("There was an error loading data...");
     } finally {

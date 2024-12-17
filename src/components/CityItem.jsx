@@ -10,7 +10,7 @@ const formatDate = (date) =>
   }).format(new Date(date));
 function CityItem({ city }) {
   const { currentCity, deleteCity } = useCities();
-  console.log(city);
+  // console.log(city);
 
   function handleClick(e) {
     e.preventDefault();
