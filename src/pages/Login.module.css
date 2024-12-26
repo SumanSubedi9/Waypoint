@@ -50,6 +50,10 @@
     justify-content: center;
   }
 
+  .form {
+    margin: 10rem auto;
+  }
+
   .heading h1 {
     font-size: 2rem;
     text-align: center;
