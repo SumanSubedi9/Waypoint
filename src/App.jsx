@@ -26,8 +26,8 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./components/SignupForm"));
-const Product = lazy(() => import("./pages/Explore"));
-const Pricing = lazy(() => import("./pages/Memories"));
+const Explore = lazy(() => import("./pages/Explore"));
+const Memories = lazy(() => import("./pages/Memories"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,8 +49,8 @@ function App() {
             <Routes>
               <Route index element={<Homepage />} />
               <Route path="/" element={<Homepage />} />
-              <Route path="product" element={<Product />} />
-              <Route path="pricing" element={<Pricing />} />
+              <Route path="explore" element={<Explore />} />
+              <Route path="memories" element={<Memories />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
               <Route
