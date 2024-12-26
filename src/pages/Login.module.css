@@ -45,7 +45,7 @@
 
 @media (max-width: 34em) {
   html {
-    touch-action: manipulation;
+    touch-action: none;
   }
   .formContainer {
     display: flex;
