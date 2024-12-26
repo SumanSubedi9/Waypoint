@@ -13,6 +13,7 @@ import { useCities } from "../context/CitiesContext";
 import { useGeolocation } from "../hooks/useGeoLocation";
 import Button from "./Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import { AddSearchControl } from "../utils/useSearchControl.js";
 
 function Map() {
   const { cities } = useCities();
@@ -67,7 +68,9 @@ function Map() {
         )}
 
         <ChangeCenter position={mapPosition} />
+
         <DetectClick />
+        <AddSearchControl />
       </MapContainer>
     </div>
   );

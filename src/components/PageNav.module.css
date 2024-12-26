@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  z-index: 999;
 }
 
 .nav ul {
@@ -21,7 +24,8 @@
 }
 
 /* CSS Modules feature */
-.nav a:global(.active) {
+.nav,
+.mobileNav a:global(.active) {
   color: var(--color-brand--2);
 }
 
@@ -31,4 +35,61 @@ a.ctaLink:visited {
   color: var(--color-dark--0);
   padding: 0.8rem 2rem;
   border-radius: 7px;
+  transition: all 0.2s ease;
+}
+
+.menuBtn,
+.menuCloseBtn {
+  display: none;
+  font-size: 4rem;
+  color: var(--color-brand--2);
+  cursor: pointer;
+}
+
+.mobileNav {
+  background-color: #1d1d1ded;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.45s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.mobileNav li {
+  list-style: none;
+}
+
+.mobileNav li a {
+  color: var(--color-light--2);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.menuClosed {
+  left: 100%;
+  opacity: 0.25;
+}
+
+.menuOpen {
+  left: 0;
+  opacity: 1;
+}
+
+@media (max-width: 38.75em) {
+  .menuBtn,
+  .menuCloseBtn {
+    display: block;
+  }
+
+  .nav ul {
+    display: none;
+  }
 }

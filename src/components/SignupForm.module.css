@@ -46,3 +46,23 @@
 .error {
   color: var(--color-error);
 }
+
+@media (max-width: 34em) {
+  .formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heading h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 25em) {
+  .form {
+    padding: 4rem;
+    margin: 3rem 0.5rem;
+  }
+}
