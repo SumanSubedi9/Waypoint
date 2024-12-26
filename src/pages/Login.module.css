@@ -44,6 +44,9 @@
 }
 
 @media (max-width: 34em) {
+  html {
+    touch-action: manipulation;
+  }
   .formContainer {
     display: flex;
     align-items: center;
