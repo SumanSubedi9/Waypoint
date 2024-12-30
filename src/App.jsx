@@ -12,6 +12,7 @@ import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage";
+import ErrorPage from "./components/ErrorPage";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 // import Product from "./pages/Explore";
@@ -68,6 +69,7 @@ function App() {
                 <Route path="form" element={<Form />} />
               </Route>
               <Route path="*" element={<PageNotFound />} />
+              <Route path="oops" element={<ErrorPage />} />
             </Routes>
           </Suspense>
         </BrowserRouter>
