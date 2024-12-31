@@ -40,7 +40,7 @@ body {
   color: var(--color-light--2);
   font-weight: 400;
   line-height: 1.6;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 label {
