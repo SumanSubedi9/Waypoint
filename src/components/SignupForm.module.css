@@ -51,6 +51,10 @@
   html {
     touch-action: manipulation;
   }
+
+  .signup {
+    padding: 2rem;
+  }
   .formContainer {
     display: flex;
     align-items: center;
