@@ -7,3 +7,9 @@
   background-position: center;
   padding: 2.5em 5rem;
 }
+
+@media (max-width: 34em) {
+  .memories {
+    padding: 2rem;
+  }
+}

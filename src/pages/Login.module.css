@@ -47,6 +47,9 @@
   html {
     touch-action: none;
   }
+  .login {
+    padding: 2rem;
+  }
   .formContainer {
     display: flex;
     align-items: center;

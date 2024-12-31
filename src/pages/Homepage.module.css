@@ -8,7 +8,7 @@
     url("/public/bg.jpg");
   background-size: cover;
   background-position: center;
-  padding: 2.5em 5rem;
+  padding: 2.5rem 5rem;
 }
 
 .homepage section {
@@ -31,4 +31,16 @@
   font-size: 1.9rem;
   color: var(--color-light--1);
   margin-bottom: 2.5rem;
+}
+
+@media (max-width: 34em) {
+  .homepage {
+    padding: 2rem;
+  }
+  .homepage h1 {
+    font-size: 3.5rem;
+  }
+  .homepage h2 {
+    font-size: 1.7rem;
+  }
 }
