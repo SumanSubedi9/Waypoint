@@ -21,7 +21,8 @@ export function useGeolocation(deafultPosition = null) {
       (error) => {
         setError(error.message);
         setIsLoading(false);
-      }
+      },
+      { enableHighAccuracy: true }
     );
   }
 
