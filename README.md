@@ -1,8 +1,13 @@
-# React + Vite
+Waypoint
+Waypoint is a web application designed to help users log and track their travel trips. With a simple and intuitive interface, users can add new trips, view past trips, and manage their travel journey in one place. The app features user authentication and secure data storage using Supabase.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+User Authentication: Sign up and login securely to track your trips and data.
+Trip Management: Add, view, and manage your trips with ease.
+Responsive Design: Built with React to provide a smooth and user-friendly experience on both desktop and mobile devices.
+Real-time Data: Utilizes Supabase for real-time data storage and management, ensuring your trip information is always up to date.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies Used
+Frontend: React, JavaScript, HTML, CSS
+Backend: Supabase (for authentication and database management)
+Hosting: Vercel
