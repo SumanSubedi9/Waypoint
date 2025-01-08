@@ -6,6 +6,7 @@ import { CitiesProvider } from "./context/CitiesContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import { lazy, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
@@ -13,7 +14,6 @@ import City from "./components/City";
 import Form from "./components/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 import ErrorPage from "./components/ErrorPage";
-import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 // import Product from "./pages/Explore";
 // import Pricing from "./pages/Memories";
@@ -29,6 +29,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./components/SignupForm"));
 const Explore = lazy(() => import("./pages/Explore"));
 const Memories = lazy(() => import("./pages/Memories"));
+const Settings = lazy(() => import("./pages/Settings"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -68,6 +69,14 @@ function App() {
                 <Route path="countries" element={<CountryList />} />
                 <Route path="form" element={<Form />} />
               </Route>
+              <Route
+                path="settings"
+                element={
+                  <ProtectedRoute>
+                    <Settings />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="*" element={<PageNotFound />} />
               <Route path="oops" element={<ErrorPage />} />
             </Routes>

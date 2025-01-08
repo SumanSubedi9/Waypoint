@@ -6,7 +6,7 @@ function SettingIcon() {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate();
+    navigate("/settings");
   }
   return (
     <button className={styles.icon} onClick={handleClick}>
