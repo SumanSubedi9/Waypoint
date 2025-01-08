@@ -1,0 +1,18 @@
+.icon {
+  background-color: var(--light-gray--2);
+  border: none;
+  padding: 0.6rem;
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: var(--color-dark--2);
+}
+
+.icon svg {
+  color: var(--color-light--2);
+  width: 1.8rem;
+  height: 1.8rem;
+}
