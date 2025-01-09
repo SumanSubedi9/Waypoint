@@ -4,7 +4,7 @@ function BackButton() {
   const navigate = useNavigate();
   return (
     <Button
-      type="back"
+      style="back"
       onClick={(e) => {
         e.preventDefault();
         navigate(-1);

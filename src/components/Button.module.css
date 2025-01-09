@@ -21,7 +21,7 @@
   color: var(--color-light--2);
 }
 
-.reset {
+.cancel {
   font-weight: 600;
   background-color: var(--color-light--2);
   color: var(--color-dark--1);

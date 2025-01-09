@@ -91,7 +91,7 @@ export default function SignupForm() {
           </div>
 
           <div>
-            <Button type="primary">Sign Up</Button>
+            <Button style="primary">Sign Up</Button>
           </div>
         </form>
       </section>

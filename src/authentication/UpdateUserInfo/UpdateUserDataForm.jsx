@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { useUser } from "../useUser";
+import { useUpdateUser } from "./useUpdateUser";
 import styles from "./UpdateUserDataForm.module.css";
 import Button from "../../components/Button";
 
 function UpdateUserDataForm() {
-  const { register, formState, errors } = useForm();
   const {
     user: {
       email,
@@ -12,38 +12,74 @@ function UpdateUserDataForm() {
     },
   } = useUser();
 
-  // const { updateUser, isUpdating } = useUpdateUser();
+  const { updateUser, isUpdating } = useUpdateUser();
 
-  // const [fullName, setFullName] = useState(currentFullName);
-  // const [avatar, setAvatar] = useState(null);
+  const [fullName, setFullName] = useState(currentFullName);
+  const [avatar, setAvatar] = useState(null);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!fullName) return;
+    updateUser(
+      { fullName, avatar },
+      {
+        onSuccess: () => {
+          setAvatar(null);
+          e.target.reset();
+        },
+      }
+    );
+  }
+
+  function handleCancel() {
+    setFullName(currentFullName);
+    setAvatar(null);
+  }
 
   return (
-    <div>
-      <form className={styles.formContainer}>
+    <form onSubmit={handleSubmit}>
+      <div className={styles.formContainer}>
         <label htmlFor="email">Email</label>
         <input value={email} disabled></input>
-      </form>
+      </div>
 
-      <form className={styles.formContainer}>
+      <div className={styles.formContainer}>
         <label htmlFor="fullName">Full name</label>
-        <input value={currentFullName} id="fullName"></input>
-      </form>
+        <input
+          value={fullName}
+          id="fullName"
+          type="text"
+          onChange={(e) => setFullName(e.target.value)}
+          disabled={isUpdating}
+        ></input>
+      </div>
 
-      <form className={styles.formContainer}>
+      <div className={styles.formContainer}>
         <label htmlFor="file">Avatar Image</label>
         <input
           className={styles.fileInput}
           type="file"
           id="avatar"
           accept="image/*"
+          onChange={(e) => setAvatar(e.target.files[0])}
+          disabled={isUpdating}
         ></input>
-      </form>
+      </div>
 
       <div className={styles.formContainer}>
-        <Button type="reset">Cancel</Button>
-        <Button type="update">Update account</Button>
+        <Button
+          type="reset"
+          style="cancel"
+          disabled={isUpdating}
+          onClick={handleCancel}
+        >
+          Cancel
+        </Button>
+        <Button style="update" disabled={isUpdating}>
+          Update account
+        </Button>
       </div>
-    </div>
+    </form>
   );
 }
 
