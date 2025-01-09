@@ -6,10 +6,13 @@ import UpdatePasswordForm from "../authentication/UpdateUserInfo/UpdatePasswordF
 function Settings() {
   return (
     <div className={styles.page}>
+      <h1>Update your account</h1>
       <div className={styles.setting}>
         <User />
-        <h1>Update your account</h1>
+
+        <h2>Update user data</h2>
         <UpdateUserDataForm />
+        <h2>Update password</h2>
         <UpdatePasswordForm />
       </div>
     </div>

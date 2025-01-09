@@ -39,7 +39,7 @@ function UpdateUserDataForm() {
         ></input>
       </form>
 
-      <div className={styles.formBtn}>
+      <div className={styles.formContainer}>
         <Button type="reset">Cancel</Button>
         <Button type="update">Update account</Button>
       </div>
