@@ -1,0 +1,23 @@
+.formContainer {
+  display: grid;
+  color: var(--color-light--2);
+  align-items: center;
+  grid-template-columns: 24rem 1fr 1.2fr;
+  gap: 2.4rem;
+  padding: 1.2rem 0;
+}
+
+.formContainer:has(button) {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+}
+
+.fileInput {
+  border: none;
+  background-color: var(--color-light--4);
+}
+
+.formContainer button {
+  border: none;
+}

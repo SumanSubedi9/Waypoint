@@ -8,6 +8,7 @@ import SettingIcon from "../ui/SettingIcon.jsx";
 function User() {
   const { logout, isLoading } = useLogout();
   const navigate = useNavigate();
+  const { user } = useUser();
 
   const defaultAvatar = Avatar;
 
@@ -17,6 +18,8 @@ function User() {
     },
   } = useUser();
 
+  const { fullName, avatar } = user.user_metadata;
+
   function handleClick() {
     window.confirm("Are you sure you want to logout?") && logout();
     navigate("/login");
@@ -24,7 +27,7 @@ function User() {
 
   return (
     <div className={styles.user}>
-      <img src={defaultAvatar} alt={currentFullName.split("")[0]} />
+      <img src={avatar || defaultAvatar} alt={currentFullName.split("")[0]} />
       <span>Welcome, {currentFullName.split(" ")[0]}</span>
       <SettingIcon />
 
