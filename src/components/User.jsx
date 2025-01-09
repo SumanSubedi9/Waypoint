@@ -3,6 +3,7 @@ import { useLogout } from "../authentication/useLogout.js";
 import { useUser } from "../authentication/useUser.js";
 import styles from "./User.module.css";
 import Avatar from "/public/default-user.jpg";
+import SettingIcon from "../ui/SettingIcon.jsx";
 
 function User() {
   const { logout, isLoading } = useLogout();
@@ -25,7 +26,13 @@ function User() {
     <div className={styles.user}>
       <img src={defaultAvatar} alt={currentFullName.split("")[0]} />
       <span>Welcome, {currentFullName.split(" ")[0]}</span>
-      <button disabled={isLoading} onClick={handleClick}>
+      <SettingIcon />
+
+      <button
+        className={styles.logoutBtn}
+        disabled={isLoading}
+        onClick={handleClick}
+      >
         Logout
       </button>
     </div>
