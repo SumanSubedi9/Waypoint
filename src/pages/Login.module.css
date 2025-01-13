@@ -37,6 +37,10 @@
   text-decoration: none;
 }
 
+.heading a:hover {
+  text-decoration: underline;
+}
+
 .row {
   display: flex;
   flex-direction: column;
