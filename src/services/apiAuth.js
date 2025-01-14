@@ -83,7 +83,7 @@ export async function forgotPassword({ email }) {
   // Check for exisitng email address
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "http://localhost:5174/change-password",
+    redirectTo: "https://mywaypoint.vercel.app/change-password",
   });
   if (error) throw new Error(error.message);
 }
