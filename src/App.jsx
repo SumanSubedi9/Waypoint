@@ -30,6 +30,8 @@ const Signup = lazy(() => import("./components/SignupForm"));
 const Explore = lazy(() => import("./pages/Explore"));
 const Memories = lazy(() => import("./pages/Memories"));
 const Settings = lazy(() => import("./pages/Settings"));
+const LoginHelp = lazy(() => import("./pages/LoginHelp"));
+const ResetHelp = lazy(() => import("./pages/ResetHelp"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -55,6 +57,8 @@ function App() {
               <Route path="memories" element={<Memories />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
+              <Route path="login-help" element={<LoginHelp />} />
+              <Route path="change-password" element={<ResetHelp />} />
               <Route
                 path="app"
                 element={
