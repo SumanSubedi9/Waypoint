@@ -33,6 +33,15 @@
   border: 1px solid currentColor;
 }
 
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+}
+
 .position {
   font-weight: 700;
   position: absolute;

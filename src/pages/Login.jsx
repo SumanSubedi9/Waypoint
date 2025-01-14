@@ -64,6 +64,9 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
+            <h3 className={styles.heading}>
+              <Link to="/login-help">Forgot Password?</Link>
+            </h3>
           </div>
 
           <div>
