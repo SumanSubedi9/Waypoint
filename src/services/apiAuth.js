@@ -76,3 +76,14 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
   if (error2) throw new Error(error2.message);
   return updatedUser;
 }
+
+// Reset passowrd
+
+export async function forgotPassword({ email }) {
+  // Check for exisitng email address
+
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: "http://localhost:5174/change-password",
+  });
+  if (error) throw new Error(error.message);
+}
