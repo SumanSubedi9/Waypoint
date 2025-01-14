@@ -65,7 +65,7 @@ export default function Login() {
               value={password}
             />
             <h3 className={styles.heading}>
-              <Link to="/LoginHelp">Forgot Password?</Link>
+              <Link to="/login-help">Forgot Password?</Link>
             </h3>
           </div>
 
