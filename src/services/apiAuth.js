@@ -59,6 +59,20 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
 
   if (!avatar) return data;
 
+  // Get the current user's avatar URL and delete the old avatar from database
+
+  const { data: userData } = await supabase.auth.getUser();
+  const currentAvatarUrl = userData.user.user_metadata.avatar;
+
+  if (currentAvatarUrl) {
+    const oldAvatarName = currentAvatarUrl.split("/").pop();
+    const { error: deleteError } = await supabase.storage
+      .from("avatars")
+      .remove([oldAvatarName]);
+
+    if (deleteError) throw new Error(deleteError.message);
+  }
+
   // Upload the avatar image
   const fileName = `avatar-${data.user.id}-${Math.random()}`;
 
