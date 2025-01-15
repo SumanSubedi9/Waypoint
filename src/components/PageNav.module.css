@@ -23,8 +23,17 @@
   font-weight: 600;
 }
 
+.nav a:hover {
+  color: var(--color-brand--2);
+}
+
 /* CSS Modules feature */
-.nav,
+
+.nav a:global(.active) {
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand--2);
+  text-decoration-thickness: 3px;
+}
 .mobileNav a:global(.active) {
   color: var(--color-brand--2);
 }
