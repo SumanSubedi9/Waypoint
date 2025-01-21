@@ -1,15 +1,65 @@
+html {
+  background-color: var(--color-dark--1);
+}
+
 .explore {
   height: 100vh;
-  /* margin: 2.5rem; */
   background-color: var(--color-dark--1);
-
   background-size: cover;
   background-position: center;
   padding: 2.5em 5rem;
+  overflow: hidden;
 }
 
-@media (max-width: 34em) {
+.explore h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-top: 4rem;
+}
+
+.exploreContainer {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+@media (max-width: 86em) {
   .explore {
-    padding: 2rem;
+    overflow: auto;
+  }
+  .explore h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 75em) {
+  .explore h1 {
+    font-size: 2.5rem;
+  }
+  .exploreContainer {
+    grid-template-columns: 2, 1fr;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 65em) {
+  .explore h1 {
+    font-size: 4rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .exploreContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+
+  .explore h1 {
+    font-size: 2rem;
+    margin-top: 4rem;
   }
 }
