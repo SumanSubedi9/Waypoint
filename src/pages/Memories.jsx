@@ -7,6 +7,7 @@ function Memories() {
       <div>
         <PageNav />
         <h1>Memories</h1>
+        <h1>Development in Progress.....</h1>
       </div>
     </section>
   );

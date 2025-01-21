@@ -8,6 +8,14 @@
   padding: 2.5em 5rem;
 }
 
+.memories h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+
+  padding: 1.5rem;
+}
+
 @media (max-width: 34em) {
   .memories {
     padding: 2rem;
