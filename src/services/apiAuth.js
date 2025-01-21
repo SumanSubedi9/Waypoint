@@ -94,8 +94,6 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
 // Reset passowrd
 
 export async function forgotPassword({ email }) {
-  // Check for exisitng email address
-
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: "https://mywaypoint.vercel.app/change-password",
   });
