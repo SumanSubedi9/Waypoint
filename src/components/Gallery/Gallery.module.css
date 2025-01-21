@@ -1,0 +1,36 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+
+.galleryItem {
+  overflow: hidden;
+}
+.galleryItem img {
+  display: block;
+  width: 100%;
+  transition: all 0.4s;
+}
+
+.galleryItem img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 84em) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 34em) {
+}
