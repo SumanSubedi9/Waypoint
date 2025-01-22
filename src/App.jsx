@@ -28,7 +28,7 @@ const AppLayout = lazy(() => import("./pages/AppLayout"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./components/SignupForm"));
 const Explore = lazy(() => import("./pages/Explore"));
-const Memories = lazy(() => import("./pages/Memories"));
+const Pricing = lazy(() => import("./pages/Pricing"));
 const Settings = lazy(() => import("./pages/Settings"));
 const LoginHelp = lazy(() => import("./pages/LoginHelp"));
 const ResetHelp = lazy(() => import("./pages/ResetHelp"));
@@ -54,7 +54,7 @@ function App() {
               <Route index element={<Homepage />} />
               <Route path="/" element={<Homepage />} />
               <Route path="explore" element={<Explore />} />
-              <Route path="memories" element={<Memories />} />
+              <Route path="pricing" element={<Pricing />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
               <Route path="login-help" element={<LoginHelp />} />

@@ -1,0 +1,23 @@
+.pricing {
+  height: 100vh;
+  /* margin: 2.5rem; */
+  background-color: var(--color-dark--1);
+
+  background-size: cover;
+  background-position: center;
+  padding: 2.5em 5rem;
+}
+
+.pricing h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+
+  padding: 1.5rem;
+}
+
+@media (max-width: 34em) {
+  .pricing {
+    padding: 2rem;
+  }
+}
