@@ -1,4 +1,4 @@
-.memories {
+.pricing {
   height: 100vh;
   /* margin: 2.5rem; */
   background-color: var(--color-dark--1);
@@ -8,7 +8,7 @@
   padding: 2.5em 5rem;
 }
 
-.memories h1 {
+.pricing h1 {
   text-align: center;
   font-size: 4rem;
   font-weight: 600;
@@ -17,7 +17,7 @@
 }
 
 @media (max-width: 34em) {
-  .memories {
+  .pricing {
     padding: 2rem;
   }
 }
