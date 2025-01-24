@@ -8,12 +8,36 @@
   padding: 2.5em 5rem;
 }
 
-.pricing h1 {
+.header {
+  font-family: "Rubik";
   text-align: center;
   font-size: 4rem;
-  font-weight: 600;
-
+  font-weight: 500;
   padding: 1.5rem;
+}
+
+.header span {
+  color: var(--color-brand--2);
+}
+
+.subHeading {
+  font-family: "Rubik", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #bdbdbd;
+
+  margin-bottom: 4rem;
+
+  padding: 1rem;
+}
+
+.details {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5rem;
+  line-height: 2;
+  text-align: center;
+
+  margin: 4rem;
 }
 
 @media (max-width: 34em) {
