@@ -1,0 +1,116 @@
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container header {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.freePlan {
+  justify-self: center;
+  border: 2px solid #fdf2e9;
+  border-radius: 11px;
+  padding: 4.6rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.proPlan {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-self: center;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fdf2e9;
+  border-radius: 11px;
+  padding: 4.6rem;
+  background-color: #2d3439;
+}
+
+.proPlan:after {
+  content: "Pro";
+  position: absolute;
+  top: 6%;
+  right: -18%;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  background-color: var(--color-brand--2);
+  padding: 0.8rem 8rem;
+  transform: rotate(45deg);
+}
+
+.planHeader {
+}
+
+.planName {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+
+.planPrice {
+  font-family: "Rubik", sans-serif;
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+}
+
+.planPrice span {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+
+.planText {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #bdbdbd;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.listItem {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.listItem svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.checkMark {
+  color: var(--color-brand--2);
+}
+
+.close {
+  color: var(--color-error);
+}
+
+.bth:hover {
+  background-color: #f5f5f5;
+}
