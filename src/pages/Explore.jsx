@@ -8,7 +8,8 @@ function Explore() {
     <section className={styles.explore}>
       <PageNav />
       <h1>
-        Your journey, our compass—wherever you travel, we&apos;ll track it.
+        Your <span>Journey</span> , our <span>Compass</span> — wherever you
+        <span> travel</span>, we&apos;ll <span>track it</span>.
       </h1>
       <div className={styles.exploreContainer}>
         <Gallery />
