@@ -1,8 +1,16 @@
 import styles from "./PricingDetail.module.css";
 import Button from "../../components/Button";
 import { IoCheckmark, IoCloseOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function PricingDetail() {
+  const navigate = useNavigate();
+
+  function handleClick(e) {
+    e.preventDefault();
+    navigate("/login");
+  }
+
   return (
     <div className={`${styles.container} ${styles.grid}`}>
       <div className={styles.freePlan}>
@@ -35,7 +43,7 @@ function PricingDetail() {
             <span>Personalized Trip Insights</span>
           </li>
         </ul>
-        <Button className={styles.btn} style="primary">
+        <Button onClick={handleClick} className={styles.btn} style="primary">
           Get Started
         </Button>
       </div>
