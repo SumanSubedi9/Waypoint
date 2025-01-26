@@ -1,5 +1,5 @@
 .testimonialContainer {
-  padding: 9.6rem;
+  padding: 3rem;
 }
 
 .testimonials {
@@ -12,7 +12,7 @@
 .testimonial img {
   width: 6.4rem;
   border-radius: 50%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .testimonialText {
