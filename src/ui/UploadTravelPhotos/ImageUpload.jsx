@@ -1,20 +1,40 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./ImageUpload.module.css";
 import Button from "../../components/Button";
 import { FiUpload } from "react-icons/fi";
+import { useUploadTravelPicture } from "../../hooks/useUploadTravelPicture";
+import { useUser } from "../../authentication/useUser.js";
+import { useCities } from "../../context/CitiesContext.jsx";
 
 function ImageUpload() {
   const fileInputRef = useRef(null);
+  const { userId } = useUser();
+  const { currentCity } = useCities();
 
-  const [fileName, setFileName] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
 
-  // Handle file selection
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  const { mutate, isPending } = useUploadTravelPicture();
+
+  useEffect(() => {
+    if (currentCity?.imageUrl) {
+      setImageUrl(currentCity.imageUrl);
+    }
+  }, [currentCity]);
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    const cityId = currentCity?.id;
+    console.log(cityId);
     if (file) {
-      setFileName(file.name);
-    } else {
-      setFileName("");
+      mutate(
+        { file, userId, id: cityId },
+        {
+          onSuccess: (url) => {
+            setImageUrl(url);
+            fileInputRef.current.value = "";
+          },
+        }
+      );
     }
   };
 
@@ -32,13 +52,24 @@ function ImageUpload() {
         type="file"
         id="imageUpload"
         accept="image/*"
-        onChange={handleFileChange}
+        onChange={handleFileSelect}
+        disabled={isPending}
       />
-      <Button style="primary" onClick={handleButtonClick}>
-        <FiUpload className={styles.inputIcon} />
-        Upload Image
-      </Button>
-      {fileName && <p>{fileName}</p>}
+
+      {imageUrl ? (
+        <div className="image-preview">
+          <img
+            src={imageUrl}
+            alt="Uploaded travel"
+            style={{ maxWidth: "100%", maxHeight: "300px" }}
+          />
+        </div>
+      ) : (
+        <Button style="primary" onClick={handleButtonClick}>
+          <FiUpload className={styles.inputIcon} />
+          {isPending ? "Uploading..." : "Upload Image"}
+        </Button>
+      )}
     </div>
   );
 }

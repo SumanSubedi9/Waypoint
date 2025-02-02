@@ -13,3 +13,10 @@
 .inputIcon {
   margin-right: 1rem;
 }
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
