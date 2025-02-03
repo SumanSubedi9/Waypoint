@@ -10,6 +10,7 @@ import {
 import supabase from "../services/supabase.js";
 import { useUser } from "../authentication/useUser.js";
 import { useRef } from "react";
+import { deleteImage } from "../services/apiImage.js";
 
 const CitiesContext = createContext();
 
@@ -18,10 +19,11 @@ function CitiesProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
   const { userId, isAuthenticated } = useUser();
+
   const channelRef = useRef(null);
 
   useEffect(() => {
-    // Real-time subscription
+    // Real time Subscription
     channelRef.current = supabase
       .channel("cities")
       .on(
@@ -31,26 +33,35 @@ function CitiesProvider({ children }) {
           // Handle different types of changes
           switch (payload.eventType) {
             case "INSERT":
-              setCities((prevCities) => [...prevCities, payload.new]);
+              if (payload.new) {
+                setCities((prevCities) => [...prevCities, payload.new]);
+              }
               break;
             case "UPDATE":
-              setCities((prevCities) =>
-                prevCities.map((city) =>
-                  city.id === payload.new.id ? payload.new : city
-                )
-              );
+              if (payload.new?.id) {
+                setCities((prevCities) =>
+                  prevCities.map((city) =>
+                    city?.id === payload.new.id ? payload.new : city
+                  )
+                );
+              }
               break;
             case "DELETE":
-              setCities((prevCities) =>
-                prevCities.filter((city) => city.id !== payload.old.id)
-              );
+              if (payload.old?.id) {
+                setCities((prevCities) =>
+                  prevCities.filter((city) => city?.id !== payload.old.id)
+                );
+              }
+              break;
+            default:
               break;
           }
         }
       )
       .subscribe();
 
-    // Cleanup subscription
+    // cleanup subscription
+
     return () => {
       if (channelRef.current) supabase.removeChannel(channelRef.current);
     };
@@ -132,6 +143,21 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     try {
       setIsLoading(true);
+
+      // 1. Get city data including image URL
+      const { data: cityData, error: fetchError } = await supabase
+        .from("cities")
+        .select("imageUrl")
+        .eq("id", id)
+        .single();
+
+      if (fetchError) throw fetchError;
+
+      // 2. Delete associated image
+      if (cityData?.imageUrl) {
+        await deleteImage(cityData.imageUrl); // Use updated deleteImage
+      }
+
       const { error } = await supabase.from("cities").delete().eq("id", id);
 
       if (error) console.error("Error deleting data:", error);
