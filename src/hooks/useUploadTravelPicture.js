@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { uploadUserTravelPicture } from "../services/apiUploadImage.js";
+import { uploadUserTravelPicture } from "../services/apiImage.js";
 
 export function useUploadTravelPicture() {
   const queryClient = useQueryClient();
