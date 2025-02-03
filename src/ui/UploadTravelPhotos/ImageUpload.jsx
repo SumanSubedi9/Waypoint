@@ -57,12 +57,8 @@ function ImageUpload() {
       />
 
       {imageUrl ? (
-        <div className="image-preview">
-          <img
-            src={imageUrl}
-            alt="Uploaded travel"
-            style={{ maxWidth: "100%", maxHeight: "300px" }}
-          />
+        <div className={styles.imagePreview}>
+          <img src={imageUrl} alt="Uploaded travel" />
         </div>
       ) : (
         <Button style="primary" onClick={handleButtonClick}>
