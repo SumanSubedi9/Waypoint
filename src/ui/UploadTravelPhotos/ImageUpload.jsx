@@ -5,6 +5,7 @@ import { FiUpload } from "react-icons/fi";
 import { useUploadTravelPicture } from "../../hooks/useUploadTravelPicture";
 import { useUser } from "../../authentication/useUser.js";
 import { useCities } from "../../context/CitiesContext.jsx";
+import Modal from "react-modal-image";
 
 function ImageUpload() {
   const fileInputRef = useRef(null);
@@ -58,7 +59,15 @@ function ImageUpload() {
 
       {imageUrl ? (
         <div className={styles.imagePreview}>
-          <img src={imageUrl} alt="Uploaded travel" />
+          <div className={styles.imageCaption}>
+            <h3>Your time in {currentCity?.cityName}</h3>
+            <p>Tap to view full size</p>
+          </div>
+          <Modal
+            small={imageUrl}
+            large={imageUrl}
+            alt="Uploaded travel Photo"
+          />
         </div>
       ) : (
         <Button style="primary" onClick={handleButtonClick}>
