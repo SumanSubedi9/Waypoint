@@ -89,6 +89,30 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, [userId, isAuthenticated]);
 
+  // Update cities in supabase database
+
+  const updateCity = async (cityId, updates) => {
+    try {
+      // Update local state
+      setCities(
+        cities.map((city) =>
+          city.id === cityId ? { ...city, ...updates } : city
+        )
+      );
+
+      // Update Supabase database
+      const { error } = await supabase
+        .from("cities")
+        .update(updates)
+        .eq("id", cityId);
+
+      if (error) throw error;
+    } catch (error) {
+      console.error("Failed to update city:", error);
+      throw error;
+    }
+  };
+
   const getCity = useCallback(async function getCity(id) {
     try {
       setIsLoading(true);
@@ -181,6 +205,7 @@ function CitiesProvider({ children }) {
         getCity,
         createCity,
         deleteCity,
+        updateCity,
       }}
     >
       {children}
