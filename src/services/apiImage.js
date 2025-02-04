@@ -30,16 +30,16 @@ export async function uploadUserTravelPicture(file, userId, id) {
 
       .update({ imageUrl: publicUrl })
 
-      .eq("id", id); // Ensure this matches your table column name
+      .eq("id", id);
 
     if (dbError) {
       console.error("Database update error:", dbError);
       throw dbError;
     }
 
-    console.log(id);
+    // console.log(id);
 
-    console.log(publicUrl);
+    // console.log(publicUrl);
 
     if (uploadError) throw uploadError;
     return publicUrl;
@@ -54,7 +54,7 @@ export async function deleteImage(imageUrl) {
 
     // Extract bucket name and file path from URL
     const urlParts = imageUrl.split("/");
-    const bucketName = "user-travel-pictures"; // Your bucket name
+    const bucketName = "user-travel-pictures";
     const filePath = urlParts.slice(urlParts.indexOf(bucketName) + 1).join("/");
 
     const { error } = await supabase.storage
@@ -69,5 +69,24 @@ export async function deleteImage(imageUrl) {
   } catch (error) {
     console.error("Error deleting image:", error);
     return false;
+  }
+}
+
+export async function deleteImageFromDatabase(id, imageUrl) {
+  try {
+    const { error } = await supabase
+      .from("cities")
+      .update({ imageUrl: null })
+      .eq("id", id);
+
+    if (error) {
+      throw new Error("Failed to delete image");
+    }
+
+    deleteImage(id, imageUrl);
+
+    // console.log("Image deleted successfully");
+  } catch (error) {
+    console.error("Error deleting image:", error.message);
   }
 }
