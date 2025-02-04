@@ -1,0 +1,96 @@
+.imageUpload {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 20rem;
+}
+
+.fileInput {
+  border: none;
+  background-color: var(--color-light--3);
+}
+
+.inputIcon {
+  margin-right: 1rem;
+}
+
+.imagePreview {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #f5f5f5;
+  aspect-ratio: 16/9;
+  max-height: 500px;
+}
+
+.imagePreview.loading img {
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+/* Image Caption */
+
+.imageCaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    transparent 100%
+  );
+  color: white;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.imageCaption h3 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.imageCaption p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Close Button */
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 0, 0, 0.9);
+  transform: translateX(-50%) scale(1.1);
+}
+
+.closeIcon {
+  color: white;
+}
