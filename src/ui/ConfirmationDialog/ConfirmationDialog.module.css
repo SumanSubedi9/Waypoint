@@ -1,0 +1,86 @@
+/* Confirmation Dialog Styles */
+.confirmationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.confirmationDialog {
+  background-color: var(--color-dark--1);
+  padding: 2rem;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 90%;
+}
+
+.confirmationDialog p {
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+.dialogActions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.confirmBtn {
+  background: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.confirmBtn:hover {
+  background: var(--color-error);
+  transform: translateY(-1px);
+}
+
+.confirmBtn:active {
+  transform: translateY(0);
+}
+
+.cancelBtn {
+  background: none;
+  color: #a0a0a0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelBtn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* Add subtle animation */
+@keyframes dialogEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confirmationDialog {
+  animation: dialogEnter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
