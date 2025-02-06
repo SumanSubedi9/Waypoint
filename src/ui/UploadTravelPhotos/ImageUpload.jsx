@@ -8,12 +8,14 @@ import { useCities } from "../../context/CitiesContext.jsx";
 import { deleteImageFromDatabase } from "../../services/apiImage.js";
 import { IoCloseOutline } from "react-icons/io5";
 import useImageCompression from "../../hooks/useImageCompression.js";
+import { useConfirmation } from "../../context/ConfirmContext.jsx";
 
 import Modal from "react-modal-image";
 
 function ImageUpload() {
   const fileInputRef = useRef(null);
   const { userId } = useUser();
+  const { confirm } = useConfirmation();
   const { currentCity, updateCity } = useCities();
   const { compressImage, isCompressing, compressionError } =
     useImageCompression();
@@ -62,16 +64,19 @@ function ImageUpload() {
 
   // Handle Delete function when the button is clicked
   const handleDelete = async () => {
-    if (!window.confirm("Are you sure you want to delete this image?")) return;
-    try {
-      await deleteImageFromDatabase(imageUrl, currentCity.id);
-      setImageUrl(null);
+    const isConfirmed = await confirm(
+      "Are you sure you want to delete the picture?"
+    );
+    if (isConfirmed)
+      try {
+        await deleteImageFromDatabase(imageUrl, currentCity.id);
+        setImageUrl(null);
 
-      // This updates both context and database
-      await updateCity(currentCity.id, { imageUrl: null });
-    } catch (error) {
-      console.error("Delete failed:", error);
-    }
+        // This updates both context and database
+        await updateCity(currentCity.id, { imageUrl: null });
+      } catch (error) {
+        console.error("Delete failed:", error);
+      }
   };
   return (
     <div className={styles.imageUpload}>
