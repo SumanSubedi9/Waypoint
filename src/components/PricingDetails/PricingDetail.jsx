@@ -6,9 +6,8 @@ import { useNavigate } from "react-router-dom";
 function PricingDetail() {
   const navigate = useNavigate();
 
-  function handleClick(e) {
-    e.preventDefault();
-    navigate("/login");
+  function handleClick(route) {
+    navigate(route);
   }
 
   return (
@@ -43,7 +42,11 @@ function PricingDetail() {
             <span>Personalized Trip Insights</span>
           </li>
         </ul>
-        <Button onClick={handleClick} className={styles.btn} style="primary">
+        <Button
+          onClick={() => handleClick("/signup")}
+          className={styles.btn}
+          style="primary"
+        >
           Get Started
         </Button>
       </div>
@@ -79,7 +82,9 @@ function PricingDetail() {
             <span>Personalized Trip Insights</span>
           </li>
         </ul>
-        <Button style="primary">Upgrade</Button>
+        <Button onClick={() => handleClick("/login")} style="primary">
+          Upgrade
+        </Button>
       </div>
     </div>
   );
