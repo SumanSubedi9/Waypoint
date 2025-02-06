@@ -4,11 +4,13 @@ import { useUser } from "../authentication/useUser.js";
 import styles from "./User.module.css";
 import Avatar from "/public/default-user.jpg";
 import SettingIcon from "../ui/SettingIcon.jsx";
+import { useConfirmation } from "../context/ConfirmContext.jsx";
 
 function User() {
   const { logout, isLoading } = useLogout();
   const navigate = useNavigate();
   const { user } = useUser();
+  const { confirm } = useConfirmation();
 
   const defaultAvatar = Avatar;
 
@@ -18,12 +20,15 @@ function User() {
     },
   } = useUser();
 
-  const { fullName, avatar } = user.user_metadata;
+  const { avatar } = user.user_metadata;
 
-  function handleClick() {
-    window.confirm("Are you sure you want to logout?") && logout();
-    navigate("/login");
-  }
+  const handleClick = async () => {
+    const isConfirmed = await confirm("Are you sure you want to logout?");
+    if (isConfirmed) {
+      logout();
+      navigate("/login");
+    }
+  };
 
   return (
     <div className={styles.user}>
