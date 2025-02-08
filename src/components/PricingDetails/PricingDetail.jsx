@@ -80,6 +80,7 @@ function PricingDetail() {
           <li className={styles.listItem}>
             <IoCheckmark className={styles.checkMark} />
             <span>Personalized Trip Insights</span>
+            <div className={styles.comingSoon}>Coming Soon</div>
           </li>
         </ul>
         <Button onClick={() => handleClick("/login")} style="primary">
