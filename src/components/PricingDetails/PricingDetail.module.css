@@ -117,7 +117,6 @@
 }
 
 /* Coming Soon */
-/* Add to your CSS module */
 .comingSoon {
   position: absolute;
   top: -8px;
@@ -136,7 +135,7 @@
   letter-spacing: 0.3px;
   z-index: 1;
   animation: badge-pulse 1.5s infinite;
-  /* Add these to prevent layout shift during animation */
+  /* prevent layout shift during animation */
   display: inline-block;
   transform-origin: center;
 }
@@ -153,7 +152,7 @@
   }
 }
 
-/* Optional: Add a subtle triangle indicator */
+/*  subtle triangle indicator */
 .comingSoon::after {
   content: "";
   position: absolute;
