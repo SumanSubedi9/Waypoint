@@ -4,6 +4,7 @@ import { useUser } from "../authentication/useUser.js";
 import styles from "./User.module.css";
 import Avatar from "/public/default-user.jpg";
 import SettingIcon from "../ui/SettingIcon.jsx";
+import StatIcon from "../ui/StatIcon.jsx";
 import { useConfirmation } from "../context/ConfirmContext.jsx";
 
 function User() {
@@ -34,6 +35,7 @@ function User() {
     <div className={styles.user}>
       <img src={avatar || defaultAvatar} alt={currentFullName.split("")[0]} />
       <span>Welcome, {currentFullName.split(" ")[0]}</span>
+      <StatIcon />
       <SettingIcon />
 
       <button

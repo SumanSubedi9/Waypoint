@@ -12,6 +12,7 @@ function CountryList() {
     return <Message message="Get Started by clicking on a city on the map" />;
 
   const countries = cities.reduce((arr, city) => {
+    if (!city) return arr;
     if (!arr.map((el) => el.country).includes(city.country))
       return [...arr, { country: city.country, emoji: city.emoji }];
     else return arr;
