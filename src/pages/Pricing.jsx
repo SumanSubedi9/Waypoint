@@ -15,6 +15,10 @@ function Pricing() {
           tools with Pro for just $49.99 per year!
         </p>
         <PricingDetail />
+        <p className={styles.message}>
+          All features of the app are completely FREE for all users! Enjoy
+          unlimited access to everything we have to offer. Start exploring now!
+        </p>
         <aside className={styles.details}>
           Price includes all applicable taxes. You can cancel at any time.
           <br />

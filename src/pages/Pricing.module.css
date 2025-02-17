@@ -35,6 +35,16 @@ html {
   padding: 1rem;
 }
 
+.message {
+  font-family: "Rubik", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #bdbdbd;
+  margin-top: 2rem;
+
+  padding: 1rem;
+}
+
 .details {
   font-family: "Rubik", sans-serif;
   font-size: 1.5rem;
