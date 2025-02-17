@@ -24,6 +24,11 @@
   animation: slide-in-from-bottom 1.5s ease-in-out;
 }
 
+.title span {
+  color: var(--color-brand--2);
+  font-weight: 700;
+}
+
 .container {
   display: flex;
   flex-direction: row;

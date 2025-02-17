@@ -70,7 +70,9 @@ function UserStat() {
         barContainerClassName={styles.barContainer}
         labelClassName={styles.label}
       />
-      <p>Your current status: {title}</p>
+      <p className={styles.title}>
+        Your current status: <span>{title}</span>{" "}
+      </p>
       <div className={styles.container}>
         <div className={styles.countryContainer}>
           <h2>
