@@ -33,6 +33,7 @@ const Pricing = lazy(() => import("./pages/Pricing"));
 const Settings = lazy(() => import("./pages/Settings"));
 const LoginHelp = lazy(() => import("./pages/LoginHelp"));
 const ResetHelp = lazy(() => import("./pages/ResetHelp"));
+const UserStat = lazy(() => import("./pages/UserStat"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -80,6 +81,14 @@ function App() {
                   element={
                     <ProtectedRoute>
                       <Settings />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="user-stat"
+                  element={
+                    <ProtectedRoute>
+                      <UserStat />
                     </ProtectedRoute>
                   }
                 />
