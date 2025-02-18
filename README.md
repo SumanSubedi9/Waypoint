@@ -12,3 +12,40 @@ Waypoint is a web application designed to help users log and track their travel 
 <b>Frontend</b>: React, JavaScript, HTML, CSS </br>
 <b>Backend</b>: Supabase (for authentication and database management) </br>
 <b>Hosting</b>: Vercel
+
+
+<h1>Screenshots</h1>
+
+<h3>Home Page</h3>
+<img src="./assets/Home.png" />
+
+<h3>Explore Page</h3>
+<img src="./assets/Explore.png" />
+
+<h3>Pricing Page</h3>
+<img src="./assets/Pricing.png" />
+
+<h3>Login</h3>
+<img src="./assets/Login.png" />
+
+<h3>Signup</h3>
+<img src="./assets/Signup.png" />
+
+<h3>Map View</h3>
+<img src="./assets/Map.png" />
+
+<h3>Cities List</h3>
+<img src="./assets/Cities.png" />
+
+<h3>Countries List</h3>
+<img src="./assets/Countries.png" />
+
+<h3>City Detail View</h3>
+<img src="./assets/City Detail.png" />
+
+<h3>Setting</h3>
+<img src="./assets/Setting.png" />
+
+<h3>User Stats</h3>
+<img src="./assets/Personal Stat.png" />
+
