@@ -44,6 +44,9 @@ html {
 
   padding: 1rem;
 }
+.message span {
+  color: var(--color-brand--2);
+}
 
 .details {
   font-family: "Rubik", sans-serif;
